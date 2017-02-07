@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		A280B2A91E48FACE000B32A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2A81E48FACE000B32A0 /* AppDelegate.swift */; };
-		A280B2AB1E48FACE000B32A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2AA1E48FACE000B32A0 /* ViewController.swift */; };
 		A280B2AE1E48FACE000B32A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A280B2AC1E48FACE000B32A0 /* Main.storyboard */; };
 		A280B2B01E48FACE000B32A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A280B2AF1E48FACE000B32A0 /* Assets.xcassets */; };
 		A280B2B31E48FACE000B32A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A280B2B11E48FACE000B32A0 /* LaunchScreen.storyboard */; };
+		A280B2BB1E48FFE8000B32A0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */; };
+		A280B2BD1E490035000B32A0 /* FriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A280B2BC1E490035000B32A0 /* FriendView.xib */; };
+		A280B2BF1E490054000B32A0 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BE1E490054000B32A0 /* FriendView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A280B2A51E48FACE000B32A0 /* Realm-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Realm-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A280B2A81E48FACE000B32A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A280B2AA1E48FACE000B32A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A280B2AD1E48FACE000B32A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A280B2AF1E48FACE000B32A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A280B2B21E48FACE000B32A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A280B2B41E48FACE000B32A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		A280B2BC1E490035000B32A0 /* FriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendView.xib; sourceTree = "<group>"; };
+		A280B2BE1E490054000B32A0 /* FriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				A280B2A81E48FACE000B32A0 /* AppDelegate.swift */,
-				A280B2AA1E48FACE000B32A0 /* ViewController.swift */,
 				A280B2AC1E48FACE000B32A0 /* Main.storyboard */,
 				A280B2AF1E48FACE000B32A0 /* Assets.xcassets */,
 				A280B2B11E48FACE000B32A0 /* LaunchScreen.storyboard */,
 				A280B2B41E48FACE000B32A0 /* Info.plist */,
+				A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */,
+				A280B2BC1E490035000B32A0 /* FriendView.xib */,
+				A280B2BE1E490054000B32A0 /* FriendView.swift */,
 			);
 			path = "Realm-example";
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 			files = (
 				A280B2B31E48FACE000B32A0 /* LaunchScreen.storyboard in Resources */,
 				A280B2B01E48FACE000B32A0 /* Assets.xcassets in Resources */,
+				A280B2BD1E490035000B32A0 /* FriendView.xib in Resources */,
 				A280B2AE1E48FACE000B32A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A280B2AB1E48FACE000B32A0 /* ViewController.swift in Sources */,
+				A280B2BB1E48FFE8000B32A0 /* FriendsViewController.swift in Sources */,
+				A280B2BF1E490054000B32A0 /* FriendView.swift in Sources */,
 				A280B2A91E48FACE000B32A0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
