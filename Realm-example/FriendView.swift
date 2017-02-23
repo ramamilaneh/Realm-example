@@ -13,6 +13,10 @@ class FriendView: UIView {
     @IBOutlet var contentView: UIView!
     let friendImage = UIImageView()
     let dividerLineView = UIView()
+    let messageView = UIView()
+    let nameLabel = UILabel()
+    let messageLabel = UILabel()
+    let timeLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,17 +40,54 @@ class FriendView: UIView {
     func setupViews() {
         self.contentView.addSubview(friendImage)
         self.contentView.addSubview(dividerLineView)
-        
+        setupMessageView()
         self.friendImage.contentMode = .scaleAspectFill
         self.friendImage.layer.cornerRadius = 34
         self.friendImage.clipsToBounds = true
         self.friendImage.image = UIImage(named: "oprah")
         self.friendImage.translatesAutoresizingMaskIntoConstraints = false
-        _ = self.friendImage.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 4, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 68, heightConstant: 68)
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[v0(68)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":friendImage]))
+         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(68)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":friendImage]))
+        addConstraint(NSLayoutConstraint(item: friendImage, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
         self.dividerLineView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
         self.dividerLineView.translatesAutoresizingMaskIntoConstraints = false
-        _ = self.dividerLineView.anchor(nil, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 0, leftConstant: 82, bottomConstant: 0, rightConstant: 2, widthConstant: 0, heightConstant: 1)
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-82-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":dividerLineView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(1)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":dividerLineView]))
+    }
+    
+    func setupMessageView() {
+       // self.messageView.backgroundColor = UIColor.green
+        self.contentView.addSubview(messageView)
+        self.messageView.addSubview(nameLabel)
+        self.messageView.addSubview(messageLabel)
+        self.messageView.addSubview(timeLabel)
+        self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.messageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-90-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":messageView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(50)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":messageView]))
+        addConstraint(NSLayoutConstraint(item: messageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+                
+        self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0][v1(80)]-12-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel , "v1":timeLabel]))
+       self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0][v1(24)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel , "v1":messageLabel]))
+        self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-8-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":messageLabel]))
+       self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(24)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":timeLabel]))
+       
+        
+        self.nameLabel.text = "Oprah Winfry"
+        self.nameLabel.font = UIFont.systemFont(ofSize: 18)
+        self.messageLabel.text = "message from your friend Oprah...."
+        self.messageLabel.font = UIFont.systemFont(ofSize: 14)
+        self.messageLabel.textColor = UIColor.darkGray
+        self.timeLabel.text = "2:50 pm"
+        self.timeLabel.textAlignment = .right
+        self.timeLabel.font = UIFont.systemFont(ofSize: 16)
+        
+
+        
     }
 
 }
