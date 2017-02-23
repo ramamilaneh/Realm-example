@@ -14,6 +14,8 @@
 		A280B2BB1E48FFE8000B32A0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */; };
 		A280B2BD1E490035000B32A0 /* FriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A280B2BC1E490035000B32A0 /* FriendView.xib */; };
 		A280B2BF1E490054000B32A0 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BE1E490054000B32A0 /* FriendView.swift */; };
+		A280B3141E5F20C5000B32A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B3131E5F20C5000B32A0 /* Extensions.swift */; };
+		A280B3161E5F23AD000B32A0 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B3151E5F23AD000B32A0 /* FriendCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		A280B2BC1E490035000B32A0 /* FriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendView.xib; sourceTree = "<group>"; };
 		A280B2BE1E490054000B32A0 /* FriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		A280B3131E5F20C5000B32A0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A280B3151E5F23AD000B32A0 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +63,25 @@
 			isa = PBXGroup;
 			children = (
 				A280B2A81E48FACE000B32A0 /* AppDelegate.swift */,
-				A280B2AC1E48FACE000B32A0 /* Main.storyboard */,
+				A280B2C01E4A0183000B32A0 /* View */,
 				A280B2AF1E48FACE000B32A0 /* Assets.xcassets */,
-				A280B2B11E48FACE000B32A0 /* LaunchScreen.storyboard */,
 				A280B2B41E48FACE000B32A0 /* Info.plist */,
 				A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */,
+				A280B3131E5F20C5000B32A0 /* Extensions.swift */,
+				A280B3151E5F23AD000B32A0 /* FriendCell.swift */,
+			);
+			path = "Realm-example";
+			sourceTree = "<group>";
+		};
+		A280B2C01E4A0183000B32A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A280B2AC1E48FACE000B32A0 /* Main.storyboard */,
+				A280B2B11E48FACE000B32A0 /* LaunchScreen.storyboard */,
 				A280B2BC1E490035000B32A0 /* FriendView.xib */,
 				A280B2BE1E490054000B32A0 /* FriendView.swift */,
 			);
-			path = "Realm-example";
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +161,8 @@
 				A280B2BB1E48FFE8000B32A0 /* FriendsViewController.swift in Sources */,
 				A280B2BF1E490054000B32A0 /* FriendView.swift in Sources */,
 				A280B2A91E48FACE000B32A0 /* AppDelegate.swift in Sources */,
+				A280B3141E5F20C5000B32A0 /* Extensions.swift in Sources */,
+				A280B3161E5F23AD000B32A0 /* FriendCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +324,7 @@
 				A280B2B91E48FACE000B32A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
