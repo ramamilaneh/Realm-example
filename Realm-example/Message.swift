@@ -15,6 +15,13 @@ class Message: Object {
     dynamic var date: Date?
     dynamic var friend: Friend? // one to one relationship
     
+    convenience init(text: String, date: Date) {
+        self.init()
+        self.text = text
+        self.date  = date
+    }
+
+    
 // Specify properties to ignore (Realm won't persist these)
     
 //  override static func ignoredProperties() -> [String] {

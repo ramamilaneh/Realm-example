@@ -20,6 +20,7 @@
 		A2844CFD1E646A79005AFB07 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2844CFC1E646A79005AFB07 /* MessagesViewController.swift */; };
 		A2A2F3641E64988E00D17142 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F3631E64988E00D17142 /* Friend.swift */; };
 		A2A2F3661E64AA0900D17142 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F3651E64AA0900D17142 /* Message.swift */; };
+		A2A2F36A1E64B7F800D17142 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F3691E64B7F800D17142 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		A2844CFC1E646A79005AFB07 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		A2A2F3631E64988E00D17142 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		A2A2F3651E64AA0900D17142 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A2A2F3691E64B7F800D17142 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		D2B862DFD2E0668B0E776537 /* Pods-Realm-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-example/Pods-Realm-example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 			children = (
 				A2A2F3631E64988E00D17142 /* Friend.swift */,
 				A2A2F3651E64AA0900D17142 /* Message.swift */,
+				A2A2F3691E64B7F800D17142 /* DataStore.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				A280B2A91E48FACE000B32A0 /* AppDelegate.swift in Sources */,
 				A2A2F3661E64AA0900D17142 /* Message.swift in Sources */,
 				A280B3141E5F20C5000B32A0 /* Extensions.swift in Sources */,
+				A2A2F36A1E64B7F800D17142 /* DataStore.swift in Sources */,
 				A280B3161E5F23AD000B32A0 /* FriendCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

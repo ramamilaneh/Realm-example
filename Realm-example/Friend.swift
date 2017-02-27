@@ -15,6 +15,11 @@ class Friend: Object {
     dynamic var profileImageName: String = ""
     let messages = LinkingObjects(fromType: Message.self, property: "friend")// relationship one to many
     
+    convenience init(name: String, profileImageName: String) {
+        self.init()
+        self.name = name
+        self.profileImageName = profileImageName
+    }
     
 // Specify properties to ignore (Realm won't persist these)
     

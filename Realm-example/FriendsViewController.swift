@@ -10,13 +10,14 @@ import UIKit
 
 class FriendsViewController: UITableViewController {
 
-    
+    let store = DataStore.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Friends"
-
-            }
-
+        store.createFreinds()
+        print(store.freinds)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,13 +30,14 @@ class FriendsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return store.freinds.count
     }
 
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCell
+        cell.friendView.friend = store.freinds[indexPath.row]
         return cell
     }
 

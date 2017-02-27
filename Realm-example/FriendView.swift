@@ -17,6 +17,21 @@ class FriendView: UIView {
     let nameLabel = UILabel()
     let messageLabel = UILabel()
     let timeLabel = UILabel()
+    var friend: Friend? {
+        didSet {
+            self.nameLabel.text = friend?.name
+            if let profileImageName = friend?.profileImageName {
+                friendImage.image = UIImage(named: profileImageName)
+            }
+
+            if let date = friend?.messages.last?.date {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "h:mm a"
+                timeLabel.text = dateFormatter.string(from: date)
+            }
+            self.messageLabel.text = friend?.messages.last?.text
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,7 +58,7 @@ class FriendView: UIView {
         self.friendImage.contentMode = .scaleAspectFill
         self.friendImage.layer.cornerRadius = 34
         self.friendImage.clipsToBounds = true
-        self.friendImage.image = UIImage(named: "oprah")
+       // self.friendImage.image = UIImage(named: "oprah")
         self.friendImage.translatesAutoresizingMaskIntoConstraints = false
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[v0(68)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":friendImage]))
          addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(68)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":friendImage]))
@@ -74,12 +89,12 @@ class FriendView: UIView {
         self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-8-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":messageLabel]))
        self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(24)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":timeLabel]))
       
-        self.nameLabel.text = "Oprah Winfry"
+       // self.nameLabel.text = "Oprah Winfry"
         self.nameLabel.font = UIFont.systemFont(ofSize: 18)
-        self.messageLabel.text = "message from your friend Oprah...."
+       // self.messageLabel.text = "message from your friend Oprah...."
         self.messageLabel.font = UIFont.systemFont(ofSize: 14)
         self.messageLabel.textColor = UIColor.darkGray
-        self.timeLabel.text = "2:50 pm"
+      //  self.timeLabel.text = "2:50 pm"
         self.timeLabel.textAlignment = .right
         self.timeLabel.font = UIFont.systemFont(ofSize: 16)
     }
