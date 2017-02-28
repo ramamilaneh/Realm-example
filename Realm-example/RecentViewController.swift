@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class FriendsViewController: UITableViewController {
+class RecentViewController: UITableViewController {
 
     let store = DataStore.sharedInstance
     override func viewDidLoad() {

@@ -12,7 +12,7 @@
 		A280B2AE1E48FACE000B32A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A280B2AC1E48FACE000B32A0 /* Main.storyboard */; };
 		A280B2B01E48FACE000B32A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A280B2AF1E48FACE000B32A0 /* Assets.xcassets */; };
 		A280B2B31E48FACE000B32A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A280B2B11E48FACE000B32A0 /* LaunchScreen.storyboard */; };
-		A280B2BB1E48FFE8000B32A0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */; };
+		A280B2BB1E48FFE8000B32A0 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BA1E48FFE8000B32A0 /* RecentViewController.swift */; };
 		A280B2BD1E490035000B32A0 /* RecentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A280B2BC1E490035000B32A0 /* RecentView.xib */; };
 		A280B2BF1E490054000B32A0 /* RecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BE1E490054000B32A0 /* RecentView.swift */; };
 		A280B3141E5F20C5000B32A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B3131E5F20C5000B32A0 /* Extensions.swift */; };
@@ -32,7 +32,7 @@
 		A280B2AF1E48FACE000B32A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A280B2B21E48FACE000B32A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A280B2B41E48FACE000B32A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		A280B2BA1E48FFE8000B32A0 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		A280B2BC1E490035000B32A0 /* RecentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecentView.xib; sourceTree = "<group>"; };
 		A280B2BE1E490054000B32A0 /* RecentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentView.swift; sourceTree = "<group>"; };
 		A280B3131E5F20C5000B32A0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				A280B2A81E48FACE000B32A0 /* AppDelegate.swift */,
-				A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */,
+				A280B2BA1E48FFE8000B32A0 /* RecentViewController.swift */,
 				A2844CFC1E646A79005AFB07 /* MessagesViewController.swift */,
 			);
 			name = Controller;
@@ -271,7 +271,7 @@
 			files = (
 				A2844CFD1E646A79005AFB07 /* MessagesViewController.swift in Sources */,
 				A2A2F3641E64988E00D17142 /* Friend.swift in Sources */,
-				A280B2BB1E48FFE8000B32A0 /* FriendsViewController.swift in Sources */,
+				A280B2BB1E48FFE8000B32A0 /* RecentViewController.swift in Sources */,
 				A280B2BF1E490054000B32A0 /* RecentView.swift in Sources */,
 				A280B2A91E48FACE000B32A0 /* AppDelegate.swift in Sources */,
 				A2A2F3661E64AA0900D17142 /* Message.swift in Sources */,
