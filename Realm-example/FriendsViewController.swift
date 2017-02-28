@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsViewController: UITableViewController {
 
     let store = DataStore.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Friends"
+        self.title = "Recent"
         store.createFreinds()
-        print(store.freinds)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,18 +32,28 @@ class FriendsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store.freinds.count
+        return store.messages.count
     }
 
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCell
-        cell.friendView.friend = store.freinds[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recentCell", for: indexPath) as! RecentCell
+       cell.recentView.message = store.messages[indexPath.row]
         return cell
     }
 
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedFriend = store.messages[indexPath.row].friend
+        performSegue(withIdentifier: "showMessages", sender: selectedFriend)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMessages"{
+            let dest = segue.destination as! MessagesViewController
+            let selectedFriend = sender as! Friend
+            dest.friend = selectedFriend
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

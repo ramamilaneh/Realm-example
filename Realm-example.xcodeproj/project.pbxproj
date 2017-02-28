@@ -13,10 +13,10 @@
 		A280B2B01E48FACE000B32A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A280B2AF1E48FACE000B32A0 /* Assets.xcassets */; };
 		A280B2B31E48FACE000B32A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A280B2B11E48FACE000B32A0 /* LaunchScreen.storyboard */; };
 		A280B2BB1E48FFE8000B32A0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */; };
-		A280B2BD1E490035000B32A0 /* FriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A280B2BC1E490035000B32A0 /* FriendView.xib */; };
-		A280B2BF1E490054000B32A0 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BE1E490054000B32A0 /* FriendView.swift */; };
+		A280B2BD1E490035000B32A0 /* RecentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A280B2BC1E490035000B32A0 /* RecentView.xib */; };
+		A280B2BF1E490054000B32A0 /* RecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B2BE1E490054000B32A0 /* RecentView.swift */; };
 		A280B3141E5F20C5000B32A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B3131E5F20C5000B32A0 /* Extensions.swift */; };
-		A280B3161E5F23AD000B32A0 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B3151E5F23AD000B32A0 /* FriendCell.swift */; };
+		A280B3161E5F23AD000B32A0 /* RecentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A280B3151E5F23AD000B32A0 /* RecentCell.swift */; };
 		A2844CFD1E646A79005AFB07 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2844CFC1E646A79005AFB07 /* MessagesViewController.swift */; };
 		A2A2F3641E64988E00D17142 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F3631E64988E00D17142 /* Friend.swift */; };
 		A2A2F3661E64AA0900D17142 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F3651E64AA0900D17142 /* Message.swift */; };
@@ -33,10 +33,10 @@
 		A280B2B21E48FACE000B32A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A280B2B41E48FACE000B32A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A280B2BA1E48FFE8000B32A0 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		A280B2BC1E490035000B32A0 /* FriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendView.xib; sourceTree = "<group>"; };
-		A280B2BE1E490054000B32A0 /* FriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		A280B2BC1E490035000B32A0 /* RecentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecentView.xib; sourceTree = "<group>"; };
+		A280B2BE1E490054000B32A0 /* RecentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentView.swift; sourceTree = "<group>"; };
 		A280B3131E5F20C5000B32A0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		A280B3151E5F23AD000B32A0 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		A280B3151E5F23AD000B32A0 /* RecentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentCell.swift; sourceTree = "<group>"; };
 		A2844CFC1E646A79005AFB07 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		A2A2F3631E64988E00D17142 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		A2A2F3651E64AA0900D17142 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -99,9 +99,9 @@
 			children = (
 				A280B2AC1E48FACE000B32A0 /* Main.storyboard */,
 				A280B2B11E48FACE000B32A0 /* LaunchScreen.storyboard */,
-				A280B2BC1E490035000B32A0 /* FriendView.xib */,
-				A280B2BE1E490054000B32A0 /* FriendView.swift */,
-				A280B3151E5F23AD000B32A0 /* FriendCell.swift */,
+				A280B2BC1E490035000B32A0 /* RecentView.xib */,
+				A280B2BE1E490054000B32A0 /* RecentView.swift */,
+				A280B3151E5F23AD000B32A0 /* RecentCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 			files = (
 				A280B2B31E48FACE000B32A0 /* LaunchScreen.storyboard in Resources */,
 				A280B2B01E48FACE000B32A0 /* Assets.xcassets in Resources */,
-				A280B2BD1E490035000B32A0 /* FriendView.xib in Resources */,
+				A280B2BD1E490035000B32A0 /* RecentView.xib in Resources */,
 				A280B2AE1E48FACE000B32A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,12 +272,12 @@
 				A2844CFD1E646A79005AFB07 /* MessagesViewController.swift in Sources */,
 				A2A2F3641E64988E00D17142 /* Friend.swift in Sources */,
 				A280B2BB1E48FFE8000B32A0 /* FriendsViewController.swift in Sources */,
-				A280B2BF1E490054000B32A0 /* FriendView.swift in Sources */,
+				A280B2BF1E490054000B32A0 /* RecentView.swift in Sources */,
 				A280B2A91E48FACE000B32A0 /* AppDelegate.swift in Sources */,
 				A2A2F3661E64AA0900D17142 /* Message.swift in Sources */,
 				A280B3141E5F20C5000B32A0 /* Extensions.swift in Sources */,
 				A2A2F36A1E64B7F800D17142 /* DataStore.swift in Sources */,
-				A280B3161E5F23AD000B32A0 /* FriendCell.swift in Sources */,
+				A280B3161E5F23AD000B32A0 /* RecentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2B862DFD2E0668B0E776537 /* Pods-Realm-example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LQ8JCXM85J;
 				INFOPLIST_FILE = "Realm-example/Info.plist";
@@ -412,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2DE778396A0AD605C6A1DECE /* Pods-Realm-example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LQ8JCXM85J;
 				INFOPLIST_FILE = "Realm-example/Info.plist";

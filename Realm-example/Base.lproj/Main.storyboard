@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="100" id="eGe-FA-ex4" customClass="FriendCell" customModule="Realm_example" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recentCell" rowHeight="100" id="eGe-FA-ex4" customClass="RecentCell" customModule="Realm_example" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eGe-FA-ex4" id="6ER-4U-1rI">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-jJ-ZxY" customClass="FriendView" customModule="Realm_example" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-jJ-ZxY" customClass="RecentView" customModule="Realm_example" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -40,8 +40,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="FriendView" destination="UwU-jJ-ZxY" id="oCe-CO-8fR"/>
-                                    <segue destination="VVL-pE-Cry" kind="show" id="qoZ-sH-rdI"/>
+                                    <outlet property="recentView" destination="UwU-jJ-ZxY" id="tgI-lw-jdq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -51,6 +50,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="XIA-Cf-Gog"/>
+                    <connections>
+                        <segue destination="VVL-pE-Cry" kind="show" identifier="showMessages" id="d0c-g6-R3L"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sw-mp-DQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

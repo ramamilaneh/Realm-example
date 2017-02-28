@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendView: UIView {
+class RecentView: UIView {
 
     @IBOutlet var contentView: UIView!
     let friendImage = UIImageView()
@@ -17,19 +17,20 @@ class FriendView: UIView {
     let nameLabel = UILabel()
     let messageLabel = UILabel()
     let timeLabel = UILabel()
-    var friend: Friend? {
+    var message: Message? {
         didSet {
-            self.nameLabel.text = friend?.name
-            if let profileImageName = friend?.profileImageName {
+            self.nameLabel.text = message?.friend?.name
+            if let profileImageName = message?.friend?.profileImageName {
                 friendImage.image = UIImage(named: profileImageName)
             }
 
-            if let date = friend?.messages.last?.date {
+            if let date = message?.date {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "h:mm a"
                 timeLabel.text = dateFormatter.string(from: date)
             }
-            self.messageLabel.text = friend?.messages.last?.text
+           let text = message?.text ?? ""
+            self.messageLabel.text = text
         }
     }
     
@@ -44,7 +45,7 @@ class FriendView: UIView {
     }
     
     func commonInit() {
-        Bundle.main.loadNibNamed("FriendView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("RecentView", owner: self, options: nil)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(contentView)
         self.contentView.constrainViewToEdges(of: self)

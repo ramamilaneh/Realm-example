@@ -8,9 +8,10 @@
 
 import UIKit
 
-class FriendCell: UITableViewCell {
+class RecentCell: UITableViewCell {
 
-    @IBOutlet weak var friendView: FriendView!
+    @IBOutlet weak var recentView: RecentView!
+  
     override func awakeFromNib() {
         super.awakeFromNib()
     }

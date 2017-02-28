@@ -10,9 +10,11 @@ import UIKit
 
 class MessagesViewController: UIViewController {
 
+    var friend: Friend?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = friend?.name
 
         // Do any additional setup after loading the view.
     }

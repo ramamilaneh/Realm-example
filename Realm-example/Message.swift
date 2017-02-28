@@ -15,10 +15,11 @@ class Message: Object {
     dynamic var date: Date?
     dynamic var friend: Friend? // one to one relationship
     
-    convenience init(text: String, date: Date) {
+    convenience init(text: String, date: Date, friend: Friend) {
         self.init()
         self.text = text
         self.date  = date
+        self.friend = friend
     }
 
     
