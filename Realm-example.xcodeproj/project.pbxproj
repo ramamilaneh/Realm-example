@@ -21,6 +21,7 @@
 		A2A2F3641E64988E00D17142 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F3631E64988E00D17142 /* Friend.swift */; };
 		A2A2F3661E64AA0900D17142 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F3651E64AA0900D17142 /* Message.swift */; };
 		A2A2F36A1E64B7F800D17142 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F3691E64B7F800D17142 /* DataStore.swift */; };
+		A2A2F36C1E65F99B00D17142 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2F36B1E65F99B00D17142 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		A2A2F3631E64988E00D17142 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		A2A2F3651E64AA0900D17142 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A2A2F3691E64B7F800D17142 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		A2A2F36B1E65F99B00D17142 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		D2B862DFD2E0668B0E776537 /* Pods-Realm-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-example/Pods-Realm-example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 				A280B2BC1E490035000B32A0 /* RecentView.xib */,
 				A280B2BE1E490054000B32A0 /* RecentView.swift */,
 				A280B3151E5F23AD000B32A0 /* RecentCell.swift */,
+				A2A2F36B1E65F99B00D17142 /* MessageCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2844CFD1E646A79005AFB07 /* MessagesViewController.swift in Sources */,
+				A2A2F36C1E65F99B00D17142 /* MessageCell.swift in Sources */,
 				A2A2F3641E64988E00D17142 /* Friend.swift in Sources */,
 				A280B2BB1E48FFE8000B32A0 /* RecentViewController.swift in Sources */,
 				A280B2BF1E490054000B32A0 /* RecentView.swift in Sources */,

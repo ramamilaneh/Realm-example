@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class RecentView: UIView {
 
     @IBOutlet var contentView: UIView!
@@ -27,6 +28,9 @@ class RecentView: UIView {
             if let date = message?.date {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "h:mm a"
+                let elapsedTimeInSecond = Date().timeIntervalSinceDate(date)
+                
+            
                 timeLabel.text = dateFormatter.string(from: date)
             }
            let text = message?.text ?? ""

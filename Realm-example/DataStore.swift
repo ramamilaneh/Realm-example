@@ -17,13 +17,15 @@ class DataStore {
         
         let oprah = Friend(name: "Oprah Winfrey", profileImageName: "oprah")
         let lisa = Friend(name: "Lisa Simpson", profileImageName: "lisa")
-//        let ramsay = Friend(name: "Chef ramsay", profileImageName: "ramsay")
-//        let adele = Friend(name: "Adele", profileImageName: "adele")
+        let ramsay = Friend(name: "Chef Ramsay", profileImageName: "ramsay")
+        let adele = Friend(name: "Adele", profileImageName: "adele")
 //        let sheldon = Friend(name: "sheldon Cooper", profileImageName: "sheldon")
-        let oprahMessage1 = Message(text: "Hello, my name is Mark. Nice to meet you...", date: Date().addingTimeInterval(-2*60), friend: oprah)
-        let oprahMessage2 = Message(text: "Nice to meet you...", date: Date().addingTimeInterval(-1*60), friend: oprah)
-        let oprahMessage3 = Message(text: "how is everything going?", date: Date().addingTimeInterval(-0*60), friend: oprah)
+        let oprahMessage1 = Message(text: "Hello, my name is Mark. Nice to meet you...", date: Date().addingTimeInterval(-3*60), friend: oprah)
+        let oprahMessage2 = Message(text: "Nice to meet you...", date: Date().addingTimeInterval(-2*60), friend: oprah)
+        let oprahMessage3 = Message(text: "how is everything going?", date: Date().addingTimeInterval(-1*60), friend: oprah)
         let lisaMessage = Message(text: "Apple creates great iOS Devices for the world...", date: Date().addingTimeInterval(-2*60), friend: lisa)
+        let ramsyMessage = Message(text: "welcome in Hill's Kitchen", date: Date().addingTimeInterval(-5*60), friend: ramsay)
+        let adeleMessage = Message(text: "All of you are invited to my party", date: Date().addingTimeInterval(-24*60*60), friend: adele)
         
         // Get the default Realm
         let realm = try! Realm()
@@ -33,10 +35,7 @@ class DataStore {
         }
         // Add to the Realm inside a transaction
         try! realm.write {
-            realm.add([oprah,lisa,oprahMessage1,oprahMessage2,oprahMessage3,lisaMessage])
-//            realm.add(ramsay)
-//            realm.add(adele)
-//            realm.add(sheldon)
+            realm.add([oprah,lisa,ramsay,adele,oprahMessage1,oprahMessage2,oprahMessage3,lisaMessage,ramsyMessage,adeleMessage])
         }
         let friends = realm.objects(Friend.self)
         for friend in friends {
@@ -45,7 +44,9 @@ class DataStore {
            let fetcehedMessages = realm.objects(Message.self).sorted(byKeyPath: "date", ascending: false).filter(predict).first
             self.messages.append(fetcehedMessages!)
         }
-       
+        self.messages = self.messages.sorted(by: { (message1, message2) in
+           return message1.date?.compare(message2.date!) == .orderedDescending
+        })
 
     }
 
