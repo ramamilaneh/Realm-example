@@ -11,16 +11,18 @@ import RealmSwift
 
 class Message: Object {
     
-    dynamic var text: String = ""
+    dynamic var text: String?
     dynamic var date: Date?
     dynamic var friend: Friend? // one to one relationship
+    dynamic var isSender = false
     
-    convenience init(text: String?, date: Date?, friend: Friend?) {
+    convenience init(text: String?, date: Date?, friend: Friend?, isSender: Bool) {
         self.init()
         let text = text ?? ""
         self.text = text
         self.date  = date
         self.friend = friend
+        self.isSender = isSender
     }
 
     

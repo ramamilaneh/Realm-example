@@ -14,14 +14,23 @@ class MessageCell: UICollectionViewCell {
     var messageView = UITextView()
     let textBubbleView = UIView()
     let profileImageView = UIImageView()
-     var message: Message? {
+    var message: Message? {
         didSet {
-            if let messageText = message?.text {
+            if let message = message,let messageText = message.text {
+                self.messageView.text = messageText
                 let size = CGSize(width: 250, height: 1000)
                 let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin.union(.usesLineFragmentOrigin), attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 18)], context: nil)
-                self.messageView.frame = CGRect(x: 56, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
-                self.textBubbleView.frame = CGRect(x: 48, y: 0, width: estimatedFrame.width + 24, height: estimatedFrame.height + 20)
-                self.messageView.text = messageText
+                // Handle the sender
+                if message.isSender {
+                    self.messageView.frame = CGRect(x: self.frame.width - estimatedFrame.width - 24, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                    self.textBubbleView.frame = CGRect(x: self.frame.width - estimatedFrame.width - 32, y: 0, width: estimatedFrame.width + 24, height: estimatedFrame.height + 20)
+                    self.profileImageView.isHidden = true
+                    self.textBubbleView.backgroundColor = UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1)
+                    self.messageView.textColor = UIColor.white
+                }else{
+                    self.messageView.frame = CGRect(x: 56, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                    self.textBubbleView.frame = CGRect(x: 48, y: 0, width: estimatedFrame.width + 24, height: estimatedFrame.height + 20)
+                }
             }
             if let profileImageName = message?.friend?.profileImageName {
                 profileImageView.image = UIImage(named: profileImageName)
@@ -49,8 +58,8 @@ class MessageCell: UICollectionViewCell {
         self.textBubbleView.layer.cornerRadius = 15
         self.textBubbleView.clipsToBounds = true
         self.profileImageView.translatesAutoresizingMaskIntoConstraints = false
-         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(30)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView]))
-         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-8-[v0(30)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(30)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-8-[v0(30)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImageView]))
         self.profileImageView.contentMode = .scaleAspectFill
         self.profileImageView.layer.cornerRadius = 15
         self.profileImageView.clipsToBounds = true
