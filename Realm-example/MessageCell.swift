@@ -14,6 +14,10 @@ class MessageCell: UICollectionViewCell {
     var messageView = UITextView()
     let textBubbleView = UIView()
     let profileImageView = UIImageView()
+    static let grayBubbleImage = UIImage(named: "bubble_gray")!.resizableImage(withCapInsets: UIEdgeInsetsMake(22, 26, 22, 26)).withRenderingMode(.alwaysTemplate)
+    static let blueBubbleImage = UIImage(named: "bubble_blue")!.resizableImage(withCapInsets: UIEdgeInsetsMake(22, 26, 22, 26)).withRenderingMode(.alwaysTemplate)
+    let bubbleImageView = UIImageView()
+    
     var message: Message? {
         didSet {
             if let message = message,let messageText = message.text {
@@ -22,14 +26,20 @@ class MessageCell: UICollectionViewCell {
                 let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin.union(.usesLineFragmentOrigin), attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 18)], context: nil)
                 // Handle the sender
                 if message.isSender {
-                    self.messageView.frame = CGRect(x: self.frame.width - estimatedFrame.width - 24, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
-                    self.textBubbleView.frame = CGRect(x: self.frame.width - estimatedFrame.width - 32, y: 0, width: estimatedFrame.width + 24, height: estimatedFrame.height + 20)
+                    self.messageView.frame = CGRect(x: self.frame.width - estimatedFrame.width - 16 - 16 - 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                    self.textBubbleView.frame = CGRect(x: self.frame.width - estimatedFrame.width - 16 - 8 - 16 - 10, y: -4, width: estimatedFrame.width + 16 + 8 + 10, height: estimatedFrame.height + 20 + 6)
                     self.profileImageView.isHidden = true
-                    self.textBubbleView.backgroundColor = UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1)
                     self.messageView.textColor = UIColor.white
+                    self.bubbleImageView.image = MessageCell.blueBubbleImage
+                    self.bubbleImageView.tintColor = UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1)
+
                 }else{
-                    self.messageView.frame = CGRect(x: 56, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
-                    self.textBubbleView.frame = CGRect(x: 48, y: 0, width: estimatedFrame.width + 24, height: estimatedFrame.height + 20)
+                    self.messageView.frame = CGRect(x:48 + 8, y:0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                    
+                    self.textBubbleView.frame = CGRect(x:48 - 10, y:-4, width: estimatedFrame.width + 16 + 8 + 16, height: estimatedFrame.height + 20 + 6)
+                    self.bubbleImageView.image = MessageCell.grayBubbleImage
+                    self.bubbleImageView.tintColor = UIColor(white: 0.95, alpha: 1)
+                    self.messageView.textColor = UIColor.black
                 }
             }
             if let profileImageName = message?.friend?.profileImageName {
@@ -51,10 +61,11 @@ class MessageCell: UICollectionViewCell {
         self.addSubview(textBubbleView)
         self.addSubview(messageView)
         self.addSubview(profileImageView)
+        self.textBubbleView.addSubview(bubbleImageView)
         
         self.messageView.font = UIFont.systemFont(ofSize: 18)
         self.messageView.backgroundColor = UIColor.clear
-        self.textBubbleView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        self.messageView.isEditable = false
         self.textBubbleView.layer.cornerRadius = 15
         self.textBubbleView.clipsToBounds = true
         self.profileImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,5 +74,11 @@ class MessageCell: UICollectionViewCell {
         self.profileImageView.contentMode = .scaleAspectFill
         self.profileImageView.layer.cornerRadius = 15
         self.profileImageView.clipsToBounds = true
+        self.bubbleImageView.image = MessageCell.grayBubbleImage
+        self.bubbleImageView.tintColor = UIColor(white: 0.95, alpha: 1)
+        self.bubbleImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.textBubbleView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":bubbleImageView]))
+        self.textBubbleView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":bubbleImageView]))
+        
     }
 }
