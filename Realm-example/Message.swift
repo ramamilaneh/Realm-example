@@ -15,8 +15,9 @@ class Message: Object {
     dynamic var date: Date?
     dynamic var friend: Friend? // one to one relationship
     
-    convenience init(text: String, date: Date, friend: Friend) {
+    convenience init(text: String?, date: Date?, friend: Friend?) {
         self.init()
+        let text = text ?? ""
         self.text = text
         self.date  = date
         self.friend = friend

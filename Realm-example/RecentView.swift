@@ -28,10 +28,14 @@ class RecentView: UIView {
             if let date = message?.date {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "h:mm a"
-                let elapsedTimeInSecond = Date().timeIntervalSinceDate(date)
-                
-            
-                timeLabel.text = dateFormatter.string(from: date)
+                let elapsedTimeInSecond = Date().timeIntervalSince(date)
+                let secondInDay: TimeInterval = 60*60*24
+                if elapsedTimeInSecond > 7*secondInDay {
+                    dateFormatter.dateFormat = "MM/DD/YY"
+                }else if elapsedTimeInSecond > secondInDay {
+                    dateFormatter.dateFormat = "EEE"
+                }
+                timeLabel.text = "\(dateFormatter.string(from: date)) >"
             }
            let text = message?.text ?? ""
             self.messageLabel.text = text
@@ -60,10 +64,10 @@ class RecentView: UIView {
         self.contentView.addSubview(friendImage)
         self.contentView.addSubview(dividerLineView)
         setupMessageView()
+        
         self.friendImage.contentMode = .scaleAspectFill
         self.friendImage.layer.cornerRadius = 34
         self.friendImage.clipsToBounds = true
-       // self.friendImage.image = UIImage(named: "oprah")
         self.friendImage.translatesAutoresizingMaskIntoConstraints = false
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[v0(68)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":friendImage]))
          addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(68)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":friendImage]))
@@ -89,19 +93,17 @@ class RecentView: UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(50)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":messageView]))
         addConstraint(NSLayoutConstraint(item: messageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
-        self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0][v1(80)]-12-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel , "v1":timeLabel]))
+        self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0][v1(90)]-12-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel , "v1":timeLabel]))
        self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0][v1(24)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel , "v1":messageLabel]))
         self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-8-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":messageLabel]))
        self.messageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(24)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":timeLabel]))
       
-       // self.nameLabel.text = "Oprah Winfry"
         self.nameLabel.font = UIFont.systemFont(ofSize: 18)
-       // self.messageLabel.text = "message from your friend Oprah...."
         self.messageLabel.font = UIFont.systemFont(ofSize: 14)
         self.messageLabel.textColor = UIColor.darkGray
-      //  self.timeLabel.text = "2:50 pm"
         self.timeLabel.textAlignment = .right
         self.timeLabel.font = UIFont.systemFont(ofSize: 16)
+
     }
 
 }
