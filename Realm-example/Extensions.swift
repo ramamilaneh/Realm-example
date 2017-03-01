@@ -63,3 +63,7 @@ extension UIView {
     
 }
 
+extension UIColor {
+    static let lightBlue = UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1)
+}
+

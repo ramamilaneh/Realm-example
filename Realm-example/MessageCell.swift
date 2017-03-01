@@ -31,8 +31,7 @@ class MessageCell: UICollectionViewCell {
                     self.profileImageView.isHidden = true
                     self.messageView.textColor = UIColor.white
                     self.bubbleImageView.image = MessageCell.blueBubbleImage
-                    self.bubbleImageView.tintColor = UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1)
-
+                    self.bubbleImageView.tintColor = UIColor.lightBlue
                 }else{
                     self.messageView.frame = CGRect(x:48 + 8, y:0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
                     
