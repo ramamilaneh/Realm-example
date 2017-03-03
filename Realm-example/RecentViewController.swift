@@ -15,9 +15,15 @@ class RecentViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Recent"
-        store.createFreinds()
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+      //  store.createFreinds()
+      print(Realm.Configuration.defaultConfiguration.fileURL!)
        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        store.fetchMessages()
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,16 +50,10 @@ class RecentViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFriend = store.messages[indexPath.row].friend
-        performSegue(withIdentifier: "showMessages", sender: selectedFriend)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMessages"{
-            let dest = segue.destination as! MessagesViewController
-            let selectedFriend = sender as! Friend
-            dest.friend = selectedFriend
-            navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        }
+            let layout = UICollectionViewFlowLayout()
+            let controller = MessagesViewController(collectionViewLayout: layout)
+            controller.friend = store.messages[indexPath.row].friend
+            navigationController?.pushViewController(controller, animated: true)
     }
    
 }

@@ -50,31 +50,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="XIA-Cf-Gog"/>
-                    <connections>
-                        <segue destination="VVL-pE-Cry" kind="show" identifier="showMessages" id="d0c-g6-R3L"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sw-mp-DQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1848.8" y="-545.57721139430294"/>
-        </scene>
-        <!--Messages View Controller-->
-        <scene sceneID="Z6J-aP-SfM">
-            <objects>
-                <viewController id="VVL-pE-Cry" customClass="MessagesViewController" customModule="Realm_example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4St-5b-gd4"/>
-                        <viewControllerLayoutGuide type="bottom" id="FOg-xf-jdI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bum-th-hOf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AaS-cs-6jX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2705" y="-546"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ug-8D-Tye">
