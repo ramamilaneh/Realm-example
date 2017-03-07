@@ -65,6 +65,7 @@ class MessageCell: UICollectionViewCell {
         self.messageView.font = UIFont.systemFont(ofSize: 18)
         self.messageView.backgroundColor = UIColor.clear
         self.messageView.isEditable = false
+        self.messageView.isSelectable = false
         self.textBubbleView.layer.cornerRadius = 15
         self.textBubbleView.clipsToBounds = true
         self.profileImageView.translatesAutoresizingMaskIntoConstraints = false

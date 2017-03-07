@@ -19,13 +19,14 @@ class MessagesViewController: UICollectionViewController, UICollectionViewDelega
     var sendButton = UIButton()
     let store = DataStore.sharedInstance
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = friend?.name
         self.setupSendMessageView()
         self.collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: "messageCell")
-        self.collectionView?.backgroundColor = UIColor.white
-       // self.collectionView?.alwaysBounceVertical = true
+        collectionView?.register(SectionView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
+      self.collectionView?.backgroundColor = UIColor.white
         self.collectionView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 48)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -34,7 +35,6 @@ class MessagesViewController: UICollectionViewController, UICollectionViewDelega
         gesture.delaysTouchesBegan = true
         gesture.delegate = self
         self.collectionView?.addGestureRecognizer(gesture)
-        
         
     }
     
@@ -45,6 +45,7 @@ class MessagesViewController: UICollectionViewController, UICollectionViewDelega
         self.messages = (friend?.messages.sorted(by: { (message1, message2) in
             return message1.date?.compare(message2.date!) == .orderedAscending
         }))!
+       
         let index = IndexPath(item: self.messages.count - 1, section: 0)
         self.collectionView?.isScrollEnabled = true
         self.collectionView?.scrollToItem(at: index, at: .bottom, animated: true)
@@ -78,8 +79,11 @@ class MessagesViewController: UICollectionViewController, UICollectionViewDelega
         
     }
     
+
     // MARK: - collection view data source
-    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let size = self.messages.count
         return size
@@ -103,14 +107,29 @@ class MessagesViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     // move the text down by 10 pixels
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 0 , bottom: 0, right: 0)
+//    }
     
-    // detect when the user click on an item to hide the keyboard
+   // detect when the user click on an item to hide the keyboard
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.inputTextField.endEditing(true)
     }
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        var view : UICollectionReusableView? = nil
+        if kind == UICollectionElementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerId", for: indexPath) as! SectionView
+          //  header.dateLabel.text = "hi...."
+            header.backgroundColor = .clear
+            view = header
+        }
+        return view!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 40)
+    }
+    
     
     func handleKeyboard(notification: NSNotification) {
         if let userInfo = notification.userInfo {
@@ -156,7 +175,7 @@ class MessagesViewController: UICollectionViewController, UICollectionViewDelega
         let indexPath = self.collectionView?.indexPathForItem(at: p)
         if let index = indexPath {
             let attributedString = NSAttributedString(string: "Do you want to delete this message?", attributes: [
-                NSFontAttributeName : UIFont.systemFont(ofSize: 18),NSForegroundColorAttributeName : UIColor.lightGray])
+                NSFontAttributeName : UIFont.systemFont(ofSize: 18),NSForegroundColorAttributeName : UIColor(white: 0.3, alpha: 1)])
             let optionMenu = UIAlertController(title: nil, message: "", preferredStyle: .actionSheet)
             optionMenu.setValue(attributedString, forKey: "attributedMessage")
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {
@@ -182,5 +201,37 @@ class MessagesViewController: UICollectionViewController, UICollectionViewDelega
         }else {
             print("Could not find index path")
         }
+    }
+    
+    func getGroupedMessage() {
+        var dates: Array<Date> = Array()
+        
+        dates.append(self.messages.first!.date!)
+        
+        for message in self.messages {
+            var sameDay: Bool = false
+            for date in dates {
+                if NSCalendar.current.isDate(date, inSameDayAs:message.date!) {
+                    sameDay = true
+                    break
+                }
+            }
+            if !sameDay {
+                dates.append(message.date!)
+            }
+        }
+        
+        var grouped: Dictionary<Date, Array<Message>> = Dictionary()
+        
+        for date in dates {
+            var dateEvents: Array<Message> = Array()
+            for message in self.messages {
+                if NSCalendar.current.isDate(message.date!, inSameDayAs: date) {
+                    dateEvents.append(message)
+                }
+            }
+            grouped[date] = dateEvents
+        }
+        print("######### \(grouped)")
     }
 }

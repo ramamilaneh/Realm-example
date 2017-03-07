@@ -31,7 +31,7 @@ class RecentView: UIView {
                 let elapsedTimeInSecond = Date().timeIntervalSince(date)
                 let secondInDay: TimeInterval = 60*60*24
                 if elapsedTimeInSecond > 7*secondInDay {
-                    dateFormatter.dateFormat = "MM/DD/YY"
+                    dateFormatter.dateFormat = "MM/dd/yy"
                 }else if elapsedTimeInSecond > secondInDay {
                     dateFormatter.dateFormat = "EEE"
                 }

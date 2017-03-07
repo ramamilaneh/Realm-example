@@ -16,7 +16,7 @@ class DataStore {
     private init() {}
     
     func createFreinds() {
-        // Create freinds
+      //   Create freinds
         let oprah = Friend(name: "Oprah Winfrey", profileImageName: "oprah")
         let lisa = Friend(name: "Lisa Simpson", profileImageName: "lisa")
         let ramsay = Friend(name: "Chef Ramsay", profileImageName: "ramsay")
@@ -50,7 +50,6 @@ class DataStore {
     
     func fetchMessages() {
         // Loop inside the friends array to get the last message of each one
-      
         self.messages = []
         let friends = realm.objects(Friend.self)
         for friend in friends {
@@ -64,6 +63,8 @@ class DataStore {
         self.messages = self.messages.sorted(by: { (message1, message2) in
             return message1.date?.compare(message2.date!) == .orderedDescending
         })
+        
+       
     }
 
 }
