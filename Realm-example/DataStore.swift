@@ -56,9 +56,16 @@ class DataStore {
             
             let predict = NSPredicate(format: "friend.name = %@", friend.name)
             // search for the messages for each freind and sort them based on date
+            if friend.messages.count == 0 {
+                realm.beginWrite()
+                realm.delete(friend)
+                try! realm.commitWrite()
+            }else {
             let fetcehedMessages = realm.objects(Message.self).sorted(byKeyPath: "date", ascending: false).filter(predict).first ?? Message(text: nil, date: nil, friend: friend, isSender: false)
             self.messages.append(fetcehedMessages)
-        }
+            }
+          }
+        
         // sort the message based on date
         self.messages = self.messages.sorted(by: { (message1, message2) in
             return message1.date?.compare(message2.date!) == .orderedDescending
